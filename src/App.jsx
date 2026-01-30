@@ -5,6 +5,7 @@ import CompanyLogo from "./components/Company";
 import Services from "./components/Services";
 import OurWork from "./components/OurWork";
 import Teams from "./components/Teams";
+import ContactUs from "./components/ContactUs";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light');
@@ -16,6 +17,7 @@ function App() {
   <Services/>
   <OurWork />
   <Teams />
+  <ContactUs />
     </div>
   )
 }
