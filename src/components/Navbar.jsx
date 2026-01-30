@@ -1,4 +1,6 @@
 import {useState } from "react";
+import { motion } from "motion/react"
+
 import assets from "../assets/assets";
 import ThmToggleBtn from "./ThmToggleBtn";
 
@@ -6,7 +8,12 @@ const Navbar = ({ theme, setTheme }) => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
 
   return (
-    <div className="flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 sticky top-0 z-20 backdrop-blur-xl font-medium bg-white/50 dark:bg-gray-900/70">
+    <motion.div
+    initial={{opacity:0, y:-50}}
+    animate={{opacity:1, y: 0}}
+    transition={{duration:0.6, ease:'easeOut'}}
+    
+     className="flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 sticky top-0 z-20 backdrop-blur-xl font-medium bg-white/50 dark:bg-gray-900/70">
       <img
         src={theme === "dark" ? assets.logo_dark : assets.logo}
         className="w-32 sm:-40"
@@ -54,7 +61,7 @@ const Navbar = ({ theme, setTheme }) => {
       </div>
 
       <div className="flex items-center gap-2 sm:gap-4">
-        
+
         <ThmToggleBtn theme={theme} setTheme={setTheme} />
 
         <img
@@ -71,7 +78,7 @@ const Navbar = ({ theme, setTheme }) => {
           connect <img src={assets.arrow_icon} width={14} alt="" />
         </a>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
